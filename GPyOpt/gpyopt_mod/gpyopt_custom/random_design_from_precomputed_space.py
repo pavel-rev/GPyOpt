@@ -32,7 +32,7 @@ class RandomDesignFromPrecomputedSpace(RandomDesign):
         # validate samples
         valid_sample_indices = (self.space.indicator_constraints(samples) == 1).flatten()
 
-        # if sum(valid_sample_indices) != len(samples):
-        #     print("Warning: Some points in precomputed search space all_x_values do not comply with constraints.")
+        if sum(valid_sample_indices) != len(samples):
+            print("Warning: Some points in precomputed search space all_x_values do not comply with constraints.")
 
         return samples[0:init_points_count, :]
